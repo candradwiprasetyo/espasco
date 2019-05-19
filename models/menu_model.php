@@ -42,6 +42,12 @@ function update($data, $id){
 	mysqli_query($mysqli, "update menus set ".$data." where menu_id = '$id'");
 }
 
+function update_stock($data_stock){
+	global $mysqli;
+	mysqli_query($mysqli, "insert into stocks values(".$data_stock.")");
+}
+
+
 function delete($id){
 	global $mysqli;
 	mysqli_query($mysqli, "delete from menus  where menu_id = '$id'");

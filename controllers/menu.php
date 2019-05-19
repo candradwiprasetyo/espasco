@@ -44,6 +44,7 @@ switch ($page) {
 			$row->menu_price = false;
 			$row->menu_img = false;
 			$row->partner_id = false;
+			$row->menu_stock = false;
 
 			$action = "menu.php?page=save";
 		}
@@ -52,9 +53,24 @@ switch ($page) {
 		get_footer();
 	break;
 
+	case 'form_stock':
+		get_header();
+
+		$close_button = "menu.php?page=list";
+		$query_menu_type = select_menu_type();
+
+		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
+		if($id){
+
+			$row = read_id($id);
+		
+			$action = "menu.php?page=edit_stock&id=$id";
+		} 
+		include '../views/menu/form_stock.php';
+		get_footer();
+	break;
+
 	case 'save':
-	
-	
 
 		extract($_POST);
 
@@ -63,6 +79,7 @@ switch ($page) {
 		$i_original_price = get_isset($i_original_price);
 		$i_margin_price = get_isset($i_margin_price);
 		$i_price = get_isset($i_price);
+		$i_stock = get_isset($i_stock);
 		$i_partner_id = get_isset($i_partner_id);
 		
 		$path = "../img/menu/";
@@ -77,7 +94,8 @@ switch ($page) {
 					'$i_margin_price',
 					'$i_price', 
 					'$i_img',
-					'$i_partner_id'
+					'$i_partner_id',
+					'$i_stock'
 			";
 			
 			//echo $data;
@@ -124,7 +142,7 @@ switch ($page) {
 							menu_margin_price = '$i_margin_price',
 							menu_price = '$i_price',
 							menu_img = '$i_img',
-							partner_id = '$i_partner_id'
+							partner_id = '$i_partner_id',
 
 					";
 				}
@@ -148,6 +166,37 @@ switch ($page) {
 		
 
 	break;
+
+	case 'edit_stock':
+
+		extract($_POST);
+
+		$id = get_isset($_GET['id']);
+		$i_stock = get_isset($i_stock);
+		
+		$i_stock_add = get_isset($i_stock_add);
+		$new_stock = $i_stock + $i_stock_add;
+		$date = date("Y-m-d H:i:s");
+			
+		$data = " menu_stock = '$new_stock'";
+
+		$data_stock = " '',
+						'$id',
+						'$date',
+						'$i_stock',
+						'$i_stock_add',
+						'$new_stock'
+					 ";
+	
+		update($data, $id);
+		update_stock($data_stock);
+	
+		header('Location: menu.php?page=list&did=2');
+
+		
+
+	break;
+
 
 	case 'delete':
 

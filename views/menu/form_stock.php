@@ -40,12 +40,12 @@
                                         
                                         <div class="form-group">
                                             <label>Nama Menu</label>
-                                            <input required type="text" name="i_name" class="form-control" placeholder="Masukkan nama menu ..." value="<?= $row->menu_name ?>"/>
+                                            <input disabled="" required type="text" name="i_name" class="form-control" placeholder="Masukkan nama menu ..." value="<?= $row->menu_name ?>"/>
                                         </div>
                                       
                                         <div class="form-group">
-                                          <label>Type</label>
-                                           <select id="basic" name="i_menu_type_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
+                                          <label>Tipe</label>
+                                           <select disabled="" id="basic" name="i_menu_type_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
                                            <?php
                                            while($r_type = mysqli_fetch_array($query_menu_type)){
 										   ?>
@@ -58,38 +58,30 @@
 
 										    <div class="form-group">
                                             <label>Harga Original</label>
-                                            <input required type="number" name="i_original_price" class="form-control" placeholder="Masukkan harga original ..." value="<?= $row->menu_original_price ?>"/>
+                                            <input readonly required type="number" name="i_original_price" class="form-control" placeholder="Masukkan harga original ..." value="<?= $row->menu_original_price ?>"/>
                                         </div>
                                         
                                             <div class="form-group">
                                             <label>Margin</label>
-                                            <input required type="number" name="i_margin_price" class="form-control" placeholder="Masukkan margin ..." value="<?= $row->menu_margin_price ?>"/>
+                                            <input required readonly type="number" name="i_margin_price" class="form-control" placeholder="Masukkan margin ..." value="<?= $row->menu_margin_price ?>"/>
                                         </div>
                                         
                                           <div class="form-group">
                                             <label>Harga Jual</label>
-                                            <input required type="number" name="i_price" class="form-control" placeholder="Masukkan harga ..." value="<?= $row->menu_price ?>"/>
+                                            <input required readonly type="number" name="i_price" class="form-control" placeholder="Masukkan harga ..." value="<?= $row->menu_price ?>"/>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Stok</label>
-                                            <input <?php if (isset($_GET['id'])) { ?>disabled="disabled"<?php } ?> required type="number" name="i_stock" class="form-control" placeholder="Masukkan stok ..." value="<?= @$row->menu_stock ?>"/>
+                                            <label>Stok Sekarang</label>
+                                            <input required type="number" readonly name="i_stock" class="form-control" placeholder="Masukkan tambah stok ..." value="<?= @$row->menu_stock ?>"/>
                                         </div>
                                         
-                                        
+                                        <div class="form-group">
+                                            <label>Tambah Stok</label>
+                                            <input required type="number" name="i_stock_add" class="form-control" placeholder="Masukkan tambah stok ..." value="<?= @$row->menu_stock_add ?>"/>
+                                        </div>
                                        
-                                          <div class="form-group">
-                                          <label>Owner</label>
-                                           <select id="basic" name="i_partner_id" size="1" class="selectpicker show-tick form-control" data-live-search="true" />
-                                           <?php
-                                           while($r_partner = mysqli_fetch_array($query_partner)){
-										   ?>
-                                             <option value="<?= $r_partner['partner_id'] ?>" <?php if($row->partner_id == $r_partner['partner_id']){ ?> selected="selected"<?php } ?>><?= $r_partner['partner_name']?></option>
-                                             <?php
-										   }
-											 ?>
-                                           </select>                                    
-                                  		</div>
+                                          
                                         
                                         </div>
                                         <div class="col-md-3">
@@ -112,7 +104,7 @@
                                 </div><!-- /.box-body -->
                                 
                                   <div class="box-footer">
-                                <input class="btn btn-success" type="submit" value="Save"/>
+                                <input class="btn btn-success" type="submit" value="Simpan"/>
                                 <a href="<?= $close_button?>" class="btn btn-success" >Close</a>
                              
                              </div>

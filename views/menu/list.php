@@ -60,7 +60,7 @@
                                                 <th>Jenis Menu</th>
                                                   <th>Harga</th>
                                                    <th>Gambar</th>
-                                                   <th>Owner</th>
+                                                   <th>Stok</th>
                                                    <th>Config</th> 
                                             </tr>
                                         </thead>
@@ -78,11 +78,12 @@
 													$gambar = ($row['menu_img']) ? $row['menu_img'] : "default.jpg";
 													?>
                                                  <td><img src="../img/menu/<?= $gambar?>" height="30" /></td>
-                                               <td><?= $row['partner_name']?></td>
+                                               <td><?= $row['menu_stock']?></td>
                                               <td style="text-align:center;">
 
                                                     <a href="menu.php?page=form&id=<?= $row['menu_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['menu_id']; ?>,'menu.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                    <a href="menu.php?page=form_stock&id=<?= $row['menu_id']?>" class="btn btn-primary" >Tambah Stok</a>
 
                                                 </td> 
                                             </tr>
