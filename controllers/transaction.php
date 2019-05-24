@@ -113,12 +113,9 @@ switch ($page) {
 				
 				
 			}
-			if($i_table_id == 0){
-				// header("Location: payment.php?table_id=0");
-				Header("Location: order.php?page=save_payment&table_id=0&building_id=1&i_payment=".$i_total_harga);
-			}else{
-				header("Location: order.php");
-			}
+			
+			Header("Location: order.php?page=save_payment&table_id=$i_table_id&i_payment=".$i_total_harga);
+			
 			//header("Location: transaction.php?page=list&table_id=$i_table_id");
 		}else{
 			header("Location: transaction.php?page=list&err=1&table_id=$i_table_id");

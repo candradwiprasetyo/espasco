@@ -68,7 +68,7 @@ switch ($page) {
 		$i_change = 0;
 	
 		$table_id = $_GET['table_id'];
-		$building_id = $_GET['building_id'];
+		// $building_id = $_GET['building_id'];
 		
 		$data_total = get_data_total($table_id);
 		$total_discount = get_total_discount($table_id);
@@ -76,7 +76,7 @@ switch ($page) {
 		// echo $i_payment.'-'.$data_total;
 		
 		if($i_payment < $data_total){
-			header("location: payment.php?table_id=$table_id&building_id=$building_id&err=1");
+			header("location: payment.php?table_id=$table_id&err=1");
 		}else{
 		
 		$query =  mysqli_query($mysqli, "select * 

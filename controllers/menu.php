@@ -185,7 +185,9 @@ switch ($page) {
 						'$date',
 						'$i_stock',
 						'$i_stock_add',
-						'$new_stock'
+						'$new_stock',
+						'1',
+						'0'
 					 ";
 	
 		update($data, $id);

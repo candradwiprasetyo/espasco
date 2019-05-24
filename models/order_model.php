@@ -128,6 +128,7 @@ function delete_tmp($table_id){
 }
 
 function get_data_total($table_id){
+	
 	global $mysqli;
 	 $query = mysqli_query($mysqli, "select sum(transaction_detail_total) as total
 							  from transactions_tmp a
@@ -135,7 +136,7 @@ function get_data_total($table_id){
 							  where table_id = '".$table_id."'");
 	$row = mysqli_fetch_array($query);
 	
-	return $row['total'];				 
+	return $row['total'];
 }
 
 function get_total_discount($table_id){

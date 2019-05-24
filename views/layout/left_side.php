@@ -58,6 +58,14 @@
                             </a>
                             
                   </li> -->
+
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 8){ echo "class='active'"; } ?>>
+                            <a href="stock.php">
+                                 <i class="fa fa-pencil-square-o"></i>
+                                <span>Stok</span>
+                            </a>
+                            
+                  </li>
                   
                    <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "class='active'"; } ?>>
                             <a href="transaction.php">
@@ -82,9 +90,7 @@
                             </a>
                             
                   </li> -->
-                  <?php
-                    if($_SESSION['user_type_id'] == 1 || $_SESSION['user_type_id'] == 2){
-                  ?>
+                 
                    <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "class='active'"; } ?>>
                             <a href="purchase.php">
                                  <i class="fa fa-list-alt"></i>
@@ -93,7 +99,9 @@
                             
                   </li>
 
-                  
+                   <?php
+                    if($_SESSION['user_type_id'] == 1 || $_SESSION['user_type_id'] == 2){
+                  ?>
                   <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-list-alt"></i>

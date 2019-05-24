@@ -181,7 +181,7 @@ function load_data_history(id)
             
             
             
-            <div class="col-md-6">
+            <div class="col-xs-6">
             <div class="form-group">
              <label>Tanggal </label>
              <div class="input-group">
@@ -194,9 +194,9 @@ function load_data_history(id)
             </div>
             </div>
             
-             <div class="col-md-6">
-             <!-- <div class="form-group">
-                                        <label>Meja </label>
+             <div class="col-xs-6">
+              <div class="form-group">
+                                        <label>Counter </label>
                                         <select name="i_table_id" id="i_table_id"  class="selectpicker show-tick form-control" data-live-search="true" onChange="load_data_history(this.value)" >
                                         <?php
                                         $query_table = mysqli_query($mysqli, "select a.*, b.building_name
@@ -217,9 +217,8 @@ function load_data_history(id)
                                         }
                                         ?>
                                         </select>
-                                      	</div> -->
+                                      	</div> 
 
-              <input type="hidden" name="i_table_id" id="i_table_id" value="0">
             </div>
            
             
