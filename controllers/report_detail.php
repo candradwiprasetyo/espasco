@@ -50,6 +50,8 @@ switch ($page) {
 			$query_item = select_detail($date1, $date2);
 			$query_partner = select_partner($date1, $date2);
 			$query_tr = select_transaction($date1, $date2);
+
+			$query_menu = select_menu();
 			
 			//fungsi backup
 
@@ -68,6 +70,7 @@ switch ($page) {
 			
             include '../views/report_detail/form_result.php'; 
 			include '../views/report_detail/list_item.php';
+			include '../views/report_detail/list_stock.php';
 			// include '../views/report_detail/list_partner.php';
 			include '../views/report_detail/list_transaction.php';
 		}

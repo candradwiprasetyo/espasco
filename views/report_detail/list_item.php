@@ -60,7 +60,7 @@
                                             <tfoot>
 											<tr>
                                             
-                                                 <td colspan="3" align="right"  style="font-size:22px; font-weight:bold;">TOTAL</td>
+                                                 <td colspan="3" align="center"  style="font-size:18px; font-weight:bold;">TOTAL</td>
                                                 <td><?= tool_format_number_report($grand_total_dasar)?></td>
                                                 <td><?= tool_format_number_report($grand_total_keuntungan)?></td>
                                               <td><?= tool_format_number_report($grand_total_omset)?></td>

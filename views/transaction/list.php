@@ -111,8 +111,9 @@ function confirm_delete_history(id){
 
 function load_data_history(id)
 {
-	//alert(id);
-	$("#table_history").load('transaction.php?page=list_history&table_id='+id); 
+	// $("#table_history").load('transaction.php?page=list_history&table_id='+id); 
+  // window.location.href = 'transaction.php?page=list&table_id='+id; 
+
 }
 	
 
@@ -212,7 +213,7 @@ function load_data_history(id)
 										}else{
 											$building= "";
 										}
-										echo $row_table['table_name'].$building; ?></option>
+										echo $row_table['table_name']; ?></option>
                                         <?php
                                         }
                                         ?>

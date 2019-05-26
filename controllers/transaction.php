@@ -19,15 +19,14 @@ switch ($page) {
 		$table_id = "";
 		if(isset($_GET['table_id'])){
 			$table_id = $_GET['table_id'];
-			$query_history = select_history($table_id);
-			
-		}
+		} 
 		
 		if($table_id == ""){
 			$check_table = 0;
 		}else{
 			$check_table = check_table($table_id);
 		}
+
 		$query_cat = select_cat();
 		$query = select();
 		$query2 = select();

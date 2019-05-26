@@ -2,7 +2,9 @@
 
 function select(){
 	global $mysqli;
-	$query = mysqli_query($mysqli, "select * from menus order by menu_id");
+	$query = mysqli_query($mysqli, "select * 
+									from menus
+									order by menu_id");
 	return $query;
 }
 
@@ -92,6 +94,15 @@ function get_data_history($table_id, $menu_id){
 							  where table_id = '".$table_id."' and menu_id = '$menu_id'
 							  ");
 	return $query;
+}
+
+function get_first_table_id(){
+	global $mysqli;
+	$query = mysqli_query($mysqli, "select min(table_id) as result from tables");
+	$row = mysqli_fetch_array($query);
+	
+	$result = ($row['result']) ? $row['result'] : 0 ; 
+	return $result;
 }
 
 ?>
