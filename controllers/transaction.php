@@ -11,7 +11,7 @@ $_SESSION['menu_active'] = 3;
 switch ($page) {
 	case 'list':
 		get_header($title);
-		
+		date_default_timezone_set('Asia/Jakarta');
 		$date = format_date(date("Y-m-d"));
 		if(isset($_GET['date'])){
 			$date = format_date($_GET['date']);

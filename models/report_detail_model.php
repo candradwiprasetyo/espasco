@@ -2,7 +2,14 @@
 
 function select_detail($date1, $date2){
 	global $mysqli;	
-	$query = mysqli_query($mysqli, "SELECT a.menu_id , a.menu_price, a.menu_name, b.jumlah, jumlah_dasar, jumlah_omset, c.partner_name
+	$query = mysqli_query($mysqli, "SELECT 
+								a.menu_id , 
+								a.menu_price, 
+								a.menu_name, 
+								b.jumlah, 
+								jumlah_dasar, 
+								jumlah_omset, 
+								c.partner_name
 								FROM menus a
 								join menu_types z on z.menu_type_id = a.menu_type_id
 								JOIN (
@@ -18,7 +25,7 @@ function select_detail($date1, $date2){
 									GROUP BY menu_id
 								) AS b ON b.menu_id = a.menu_id
 								join partners c on c.partner_id = a.partner_id
-								order by z.menu_type_id, menu_name desc
+								order by z.menu_type_id, menu_name asc
 						");
 	
 	return $query;

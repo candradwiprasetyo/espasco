@@ -15,7 +15,8 @@ switch ($page) {
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		
-		$date_default = "";
+		date_default_timezone_set('Asia/Jakarta');
+		$date_default = date("d/m/Y")." - ".date("d/m/Y");
 		$date_url = "";
 
 		$button_download = "";
