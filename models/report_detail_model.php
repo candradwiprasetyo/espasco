@@ -181,7 +181,8 @@ function get_stock_counter_yesterday($menu_id, $date) {
 	$query = mysqli_query($mysqli, "
 									SELECT sum( stock_amount ) AS jumlah
 									FROM stocks a
-									WHERE a.stock_date <= '$date 23:59:59'
+									WHERE  a.stock_date >= '2019-05-24 00:00:00'
+									AND a.stock_date <= '$date 23:59:59'
 									and stock_type = 2
 									and menu_id = '$menu_id'
 							 ");
@@ -192,7 +193,8 @@ function get_stock_counter_yesterday($menu_id, $date) {
 									SELECT 	sum( transaction_detail_qty ) AS jumlah
 									FROM transaction_details a
 									JOIN transactions b on b.transaction_id = a.transaction_id
-									WHERE b.transaction_date <= '$date 23:59:59'
+									WHERE  b.transaction_date >= '2019-05-24 00:00:00'
+									AND b.transaction_date <= '$date 23:59:59'
 									AND a.menu_id = '$menu_id'
 							 ");
 	$result_terjual = mysqli_fetch_array($query_terjual);

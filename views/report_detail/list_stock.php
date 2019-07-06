@@ -80,7 +80,7 @@
                                               </td>
                                               <td>
                                                 <?php
-                                                $sisa = $counter - $terjual + $counter_yesterday;
+                                                $sisa = $counter - $terjual;
                                                 echo $sisa;
                                                 ?>
                                               </td>
